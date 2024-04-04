@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Tic-Tac-Toe TP
+Le TP est à rendre au plus tard **lundi 8 avril 2024, minuit**, par mail en signalant votre nom, prénom et le lien du repository public sur lequel se trouve vos livrables, le mail d'envoi **et** l'historique des commits faisant foi.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Il vous est possible de vous entre-aider mais votre rendu est **personnel** sauf mention contraire expresse pour les situations identifiées en amont.
 
-## Available Scripts
+## Instructions
 
-In the project directory, you can run:
+### Préparer son environnement
+- A partir du docker-compose disponible sur le repository [docker-gitlab-jenkins](https://github.com/June-Ruth/docker-gitlab-jenkins)
 
-### `npm start`
+### Récupérer le projet en local
+- Clôner le projet en local
+- Mettre en place le projet sur le GitLab local avec le nom formaté selon le schéma suivant : **_nom_prenom_tic-tac-toe_**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Création d'une pipeline d'intégration et de déploiement
+La pipeline doit être formatée selon le schéma suivant : **_nom_prenom_tic-tac-toe_**
+#### Outils
+- La pipeline doit être éxécutée à partir de la plateforme d'intégration continue Jenkins
+#### Fréquence
+- La pipeline doit pouvoir être exécutée manuellement
+- La pipeline doit être exécutée à chaque action de push et de merge request
+##### Contenu
+- La pipeline doit exécuter les tests
+- Le stage de test doit mentionner le type de tests exéutés selon la pyramide des tests (soit dans son nom, soit dans la console lors de l'exécution)
+- La pipeline doit fournir un rapport de couverture Clover
+- La pipeline doit fournir les artefacts de distribution nécessaires au déploiement
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Correction des tests
+- Les tests non-validés par la pipeline doivent être corrigés afin d'être valides
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Livrables
+- Le code final sera rendu disponible sur un repository public
+- La branche principale (main) sera à jour de l'ensemble des modifications
+- Le code final devra conserver l'historique des branches et commits
+- Le README présentera le workflow Git choisi en expliquant ses avantages et/ou inconvénients
+- Le repository disposera d'un package spécifique pour les documents issus de la pipeline :
+  - le rapport de couverture Clover fourni lors du dernier cycle Jenkins (format .html)
+  - une copie (format .pdf) du dashboard principal de la **pipeline** sur Jenkins présentant au moins un cycle exécuté de manière automatique, les artefacts issue du build et le résumé de la couverture Clover
+  - une copie (format .pdf) des paramètres mis en place sur GitLab servant à l'intégration de Jenkins
+ 
+## Attention
+- Les projets qui ne respectent pas les conventions de nommage ne seront pas évalués.
+- Les projets dont l'historique git n'est pas accessible ne seront pas évalués.
+- Les repository innaccessibles (adresse erronée, settings non-public) ne seront pas évaluées.
