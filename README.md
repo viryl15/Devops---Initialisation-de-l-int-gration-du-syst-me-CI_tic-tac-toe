@@ -1,44 +1,26 @@
 # Tic-Tac-Toe TP
-Le TP est à rendre au plus tard **lundi 8 avril 2024, minuit**, par mail en signalant votre nom, prénom et le lien du repository public sur lequel se trouve vos livrables, le mail d'envoi **et** l'historique des commits faisant foi.
+Le workflow utilisé sur ce projet est le **Pull Request Workflow** <br>
+J'ai utlisé 03 branches, **main** (pour la production), **develop** (pour le developpement) et **bugfix** pour les bugs.
 
-Il vous est possible de vous entre-aider mais votre rendu est **personnel** sauf mention contraire expresse pour les situations identifiées en amont.
+## Avantages
+- **Collaboration améliorée :** Les pull requests permettent aux développeurs de travailler ensemble sur des fonctionnalités ou des correctifs et de partager facilement leur code avec d'autres membres de l'équipe.
 
-## Instructions
+- **Révision du code :** Les pull requests facilitent l'examen du code par les pairs, ce qui aide à détecter les erreurs, les problèmes de performance et les mauvaises pratiques de codage avant que le code ne soit fusionné dans la branche principale.
 
-### Préparer son environnement
-- A partir du docker-compose disponible sur le repository [docker-gitlab-jenkins](https://github.com/June-Ruth/docker-gitlab-jenkins)
+- **Historique des modifications clair :** Le Pull Request Workflow permet de suivre les modifications apportées au code, les discussions et les décisions prises lors du processus de révision. Cela facilite la compréhension du contexte et des raisons derrière chaque modification.
 
-### Récupérer le projet en local
-- Clôner le projet en local
-- Mettre en place le projet sur le GitLab local avec le nom formaté selon le schéma suivant : **_nom_prenom_tic-tac-toe_**
+- **Intégration continue :** Les pull requests peuvent être associées à des tests automatisés et à d'autres vérifications, ce qui garantit que le code fusionné dans la branche principale est stable et fonctionnel.
 
-### Création d'une pipeline d'intégration et de déploiement
-La pipeline doit être formatée selon le schéma suivant : **_nom_prenom_tic-tac-toe_**
-#### Outils
-- La pipeline doit être éxécutée à partir de la plateforme d'intégration continue Jenkins
-#### Fréquence
-- La pipeline doit pouvoir être exécutée manuellement
-- La pipeline doit être exécutée à chaque action de push et de merge request
-##### Contenu
-- La pipeline doit exécuter les tests
-- Le stage de test doit mentionner le type de tests exéutés selon la pyramide des tests (soit dans son nom, soit dans la console lors de l'exécution)
-- La pipeline doit fournir un rapport de couverture Clover
-- La pipeline doit fournir les artefacts de distribution nécessaires au déploiement
+- **Gestion des conflits simplifiée :** Les pull requests permettent de détecter et de résoudre les conflits de fusion avant que le code ne soit intégré à la branche principale.
 
-### Correction des tests
-- Les tests non-validés par la pipeline doivent être corrigés afin d'être valides
 
-## Livrables
-- Le code final sera rendu disponible sur un repository public
-- La branche principale (main) sera à jour de l'ensemble des modifications
-- Le code final devra conserver l'historique des branches et commits
-- Le README présentera le workflow Git choisi en expliquant ses avantages et/ou inconvénients
-- Le repository disposera d'un package spécifique pour les documents issus de la pipeline :
-  - le rapport de couverture Clover fourni lors du dernier cycle Jenkins (format .html)
-  - une copie (format .pdf) du dashboard principal de la **pipeline** sur Jenkins présentant au moins un cycle exécuté de manière automatique, les artefacts issue du build et le résumé de la couverture Clover
-  - une copie (format .pdf) des paramètres mis en place sur GitLab servant à l'intégration de Jenkins
- 
-## Attention
-- Les projets qui ne respectent pas les conventions de nommage ne seront pas évalués.
-- Les projets dont l'historique git n'est pas accessible ne seront pas évalués.
-- Les repository innaccessibles (adresse erronée, settings non-public) ne seront pas évaluées.
+## Inconvénients
+- **Surhead administratif :** La création, la révision et la fusion des pull requests peuvent être chronophages et nécessiter une coordination supplémentaire entre les membres de l'équipe.
+
+- **Délais d'examen :** Les pull requests peuvent parfois rester en attente d'examen pendant une période prolongée, ce qui peut ralentir le processus de développement et retarder la livraison des fonctionnalités.
+
+- **Dépendance aux compétences en communication :** La réussite du Pull Request Workflow dépend de la capacité des membres de l'équipe à communiquer efficacement et à fournir des commentaires constructifs. Des problèmes de communication peuvent entraîner des retards, des malentendus et des conflits au sein de l'équipe.
+
+- **Risque de retards dans la fusion :** Si les pull requests ne sont pas examinées et fusionnées rapidement, les développeurs peuvent continuer à travailler sur du code obsolète, ce qui peut entraîner des conflits de fusion et des problèmes d'intégration.
+
+- **Complexité accrue :** Le Pull Request Workflow peut être plus complexe à mettre en place et à gérer que d'autres workflows Git, en particulier pour les équipes moins expérimentées ou les projets de petite taille.
