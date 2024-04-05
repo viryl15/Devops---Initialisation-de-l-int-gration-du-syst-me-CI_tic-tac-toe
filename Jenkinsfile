@@ -4,15 +4,15 @@ pipeline {
         nodejs 'nodejs20'
     }
     stages {
-        stage('Build') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Building......'
+                echo 'Installing dependencies...'
                 sh  'npm install'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing'
+                echo 'Functional Testing...'
                 sh 'CI=true npm test -- --coverage'
             }
             post {
@@ -28,9 +28,9 @@ pipeline {
                     }
                 }
         }
-        stage('Deploy / Deliver') {
+        stage('Build') {
             steps {
-                echo 'Deploying...'
+                echo 'Building the application...'
                 sh "npm run build"
             }
             post {
@@ -38,6 +38,12 @@ pipeline {
                     archiveArtifacts artifacts: 'build/**/*.*', onlyIfSuccessful: true
                 }
             }
+        }
+    }
+    post {
+        always {
+            echo "Pipeline completed. Cleaning up..."
+            sh "rm -rf node_modules"
         }
     }
 }
